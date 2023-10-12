@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function App() {
   const [filters, setFilters] = useState({
-    category: "All",
+    category: "all",
     minPrice: "0"
   })
 
@@ -15,7 +15,7 @@ function App() {
     return products.filter((product)=>{
       return (
         product.price >= filters.minPrice && (
-          filters.category === "All" 
+          filters.category === "all" 
           || 
           filters.category === product.category
         )
