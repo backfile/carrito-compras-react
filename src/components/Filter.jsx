@@ -1,11 +1,11 @@
 export function Filter({filters, setFilters}){
+
     const handleChangeMinPrice = (event) =>{
         setFilters(prevState => ({
             ...prevState,
             minPrice: event.target.value
         }))
     }
-
     const handleChangeCategory = (event) => {
       setFilters(prevState => ({
         ...prevState,
@@ -14,7 +14,7 @@ export function Filter({filters, setFilters}){
     };
 
     return (
-      <header>
+      <>
         <div>
           <label htmlFor="minPrice"></label>
           <input
@@ -24,6 +24,7 @@ export function Filter({filters, setFilters}){
             type="range"
             name=""
             id="minPrice"
+            value={filters.minPrice}
           />
           <p>{filters.minPrice}</p>
         </div>
@@ -35,6 +36,6 @@ export function Filter({filters, setFilters}){
             <option value="smartphones">Celulares</option>
           </select>
         </div>
-      </header>
+      </>
     );
 }
