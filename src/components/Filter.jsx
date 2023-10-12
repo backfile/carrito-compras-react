@@ -1,4 +1,9 @@
-export function Filter({filters, setFilters}){
+import { FiltersContext } from "../context/filters";
+import { useContext } from "react";
+
+export function Filter(){
+
+    const { filters, setFilters } = useContext(FiltersContext);
 
     const handleChangeMinPrice = (event) =>{
         setFilters(prevState => ({
