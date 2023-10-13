@@ -21,7 +21,7 @@ export function Filter(){
 
     return (
       <>
-        <div>
+        <div className="min_price_container">
           <label htmlFor={minPriceID}>Precio mínimo: </label>
           <input
             min={0}
@@ -32,11 +32,11 @@ export function Filter(){
             id={minPriceID}
             value={filters.minPrice}
           />
-          <p>{filters.minPrice}</p>
+          <p className="min_price_value">${filters.minPrice}</p>
         </div>
-        <div>
-          <label htmlFor={categoryID}>Categoría</label>
-          <select onChange={handleChangeCategory} name="" id={categoryID}>
+        <div className="category_container">
+          <label className="category" htmlFor={categoryID}>Categoría</label>
+          <select  className="select" onChange={handleChangeCategory} name="" id={categoryID}>
             <option value="all">Todas</option>
             <option value="laptops">Laptop</option>
             <option value="smartphones">Celulares</option>

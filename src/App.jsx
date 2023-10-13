@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <header>
+      <header className="header">
         <Filter/>
       </header>
       <main>

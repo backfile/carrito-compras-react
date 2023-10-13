@@ -4,9 +4,9 @@ export function Products({filteredProducts}){
         {filteredProducts.map((product) => {
           return (
             <li key={product.id}>
-              <h1>{product.title}</h1>
+              <p className="product_title">{product.title}</p>
               <img className="product_img" src={product.thumbnail} alt="" />
-              <p>${product.price}</p>
+              <p className="product_price">${product.price}</p>
             </li>
           );
         })}
