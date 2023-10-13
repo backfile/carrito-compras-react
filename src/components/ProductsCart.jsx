@@ -1,21 +1,22 @@
+export function ProductsCart({ productsCart, removeToCart }) {
 
-import { useProductCart } from "../hocks/useProductCart";
-
-export function Products({addToCart, filteredProducts}){
-  
-
-    return (
+  return (
+    <>
+      <p>Carrito</p>
       <ul className="products">
-        {filteredProducts.map((product) => {
+        {productsCart.map((product) => {
           return (
             <li key={product.id}>
               <p className="product_title">{product.title}</p>
               <img className="product_img" src={product.thumbnail} alt="" />
               <p className="product_price">${product.price}</p>
-              <button onClick={() => addToCart(product.id)}>Agregar al carrito</button>
+              <button onClick={() => removeToCart(product.id)}>
+                Eliminar del carrito
+              </button>
             </li>
           );
         })}
       </ul>
-    );
+    </>
+  );
 }
