@@ -1,4 +1,7 @@
-export function Products({filteredProducts}){
+import { useState } from "react"
+
+export function Products({filteredProducts, addToCart}){
+
     return (
       <ul className="products">
         {filteredProducts.map((product) => {
@@ -7,6 +10,7 @@ export function Products({filteredProducts}){
               <p className="product_title">{product.title}</p>
               <img className="product_img" src={product.thumbnail} alt="" />
               <p className="product_price">${product.price}</p>
+              <button onClick={() => addToCart(product.id)}>Agregar al carrito</button>
             </li>
           );
         })}
