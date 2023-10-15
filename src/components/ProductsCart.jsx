@@ -1,3 +1,5 @@
+import { RemoveCartIcon } from "./Icons";
+
 export function ProductsCart({ productsCart, removeToCart }) {
 
   return (
@@ -11,7 +13,7 @@ export function ProductsCart({ productsCart, removeToCart }) {
               <img className="product_img" src={product.thumbnail} alt="" />
               <p className="product_price">${product.price}</p>
               <button onClick={() => removeToCart(product.id)}>
-                Eliminar del carrito
+                <RemoveCartIcon/>
               </button>
             </li>
           );

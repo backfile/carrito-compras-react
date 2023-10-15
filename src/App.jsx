@@ -1,4 +1,4 @@
-import products from "./mocks/products.json"
+import {products as initialProducts}from "./mocks/products.json"
 import { Filter } from "./components/Filter";
 import { useFilter } from "./hocks/useFilter";
 import { Products } from "./components/Products";
@@ -9,9 +9,8 @@ import "./App.css";
 
 function App() {
   const {filterProducts} = useFilter()
-  const listOfProducts = products.products;
-  const filteredProducts = filterProducts(listOfProducts);
-  const {productsCart, addToCart, removeToCart} = useProductCart(filteredProducts)
+  const filteredProducts = filterProducts(initialProducts);
+  const {productsCart, addToCart, removeToCart, checkIsOnCart} = useProductCart(filteredProducts)
 
 
   return (
@@ -20,7 +19,12 @@ function App() {
         <Filter />
       </header>
       <main>
-        <Products addToCart={addToCart} filteredProducts={filteredProducts} />
+        <Products
+          addToCart={addToCart}
+          filteredProducts={filteredProducts}
+          checkIsOnCart={checkIsOnCart}
+          removeToCart={removeToCart}
+        />
         {productsCart[0] && (
           <ProductsCart
             productsCart={productsCart}
