@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { ProductsContext } from "../context/products";
+
 
 export function useProductCart(filteredProducts){
-     const [productsCart, setProductsCart] = useState([]);
+     const { productsCart, setProductsCart } = useContext(ProductsContext)
 
      const checkIsOnCart = (id) => {
         let array = [...productsCart];

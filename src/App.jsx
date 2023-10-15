@@ -4,35 +4,27 @@ import { useFilter } from "./hocks/useFilter";
 import { Products } from "./components/Products";
 import { ProductsCart } from "./components/ProductsCart";
 import { useProductCart } from "./hocks/useProductCart"
+import { ProductsProvider } from "./context/products";
 import "./App.css";
 
 
 function App() {
   const {filterProducts} = useFilter()
   const filteredProducts = filterProducts(initialProducts);
-  const {productsCart, addToCart, removeToCart, checkIsOnCart} = useProductCart(filteredProducts)
+
 
 
   return (
-    <>
+    <ProductsProvider>
       <header className="header">
         <Filter />
       </header>
       <main>
-        <Products
-          addToCart={addToCart}
-          filteredProducts={filteredProducts}
-          checkIsOnCart={checkIsOnCart}
-          removeToCart={removeToCart}
-        />
-        {productsCart[0] && (
-          <ProductsCart
-            productsCart={productsCart}
-            removeToCart={removeToCart}
-          />
-        )}
+        <Products filteredProducts={filteredProducts} />
+        <ProductsCart filteredProducts={filteredProducts} />
+      
       </main>
-    </>
+    </ProductsProvider>
   );
 }
 

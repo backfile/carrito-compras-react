@@ -72,6 +72,15 @@ li{
   font-size: 18px;
 }
 
+.add_cart_icon{
+  border: green 1px solid;
+}
+
+.remove_cart_icon{
+  border: red 1px solid;
+}
+
+
 @media (max-width: 550px) {
     .min_price_container{
       flex-direction: column;

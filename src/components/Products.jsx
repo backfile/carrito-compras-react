@@ -1,6 +1,10 @@
+import { useProductCart } from "../hocks/useProductCart";
 import { AddCartIcon, RemoveCartIcon } from "./Icons";
 
-export function Products({addToCart, filteredProducts, checkIsOnCart, removeToCart}){
+export function Products({filteredProducts}){
+
+
+    const {addToCart, checkIsOnCart, removeToCart} = useProductCart(filteredProducts)
 
     const handleClick = (id) =>{
       const isOnCart = checkIsOnCart(id)
@@ -20,14 +24,17 @@ export function Products({addToCart, filteredProducts, checkIsOnCart, removeToCa
               <img className="product_img" src={product.thumbnail} alt="" />
               <p className="product_price">${product.price}</p>
               <button
-                className="AddCartIcon_container"
+                className={
+                  checkIsOnCart(product.id)
+                    ? "remove_cart_icon"
+                    : "add_cart_icon"
+                }
                 onClick={() => handleClick(product.id)}
               >
-                {checkIsOnCart(product.id) ? (
-                  <RemoveCartIcon/>
-                ) : (
-                  <AddCartIcon />
-                )}
+                {checkIsOnCart(product.id) 
+                  ? <RemoveCartIcon />
+                  : <AddCartIcon />
+                }
               </button>
             </li>
           );
