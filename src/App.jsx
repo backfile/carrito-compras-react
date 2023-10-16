@@ -1,11 +1,10 @@
 import {products as initialProducts}from "./mocks/products.json"
-import { Filter } from "./components/Filter";
 import { useFilter } from "./hocks/useFilter";
 import { Products } from "./components/Products";
 import { ProductsCart } from "./components/ProductsCart";
-import { useProductCart } from "./hocks/useProductCart"
 import { ProductsProvider } from "./context/products";
 import "./App.css";
+import { Header } from "./components/Header";
 
 
 function App() {
@@ -13,16 +12,12 @@ function App() {
   const filteredProducts = filterProducts(initialProducts);
 
 
-
   return (
     <ProductsProvider>
-      <header className="header">
-        <Filter />
-      </header>
+      <Header/>
       <main>
         <Products filteredProducts={filteredProducts} />
         <ProductsCart filteredProducts={filteredProducts} />
-      
       </main>
     </ProductsProvider>
   );

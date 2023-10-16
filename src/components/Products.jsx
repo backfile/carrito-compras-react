@@ -18,6 +18,8 @@ export function Products({filteredProducts}){
     return (
       <ul className="products">
         {filteredProducts.map((product) => {
+          const isOnCart = checkIsOnCart(product.id)
+          
           return (
             <li key={product.id}>
               <p className="product_title">{product.title}</p>
@@ -25,13 +27,13 @@ export function Products({filteredProducts}){
               <p className="product_price">${product.price}</p>
               <button
                 className={
-                  checkIsOnCart(product.id)
+                  isOnCart
                     ? "remove_cart_icon"
                     : "add_cart_icon"
                 }
                 onClick={() => handleClick(product.id)}
               >
-                {checkIsOnCart(product.id) 
+                {isOnCart 
                   ? <RemoveCartIcon />
                   : <AddCartIcon />
                 }

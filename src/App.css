@@ -80,6 +80,32 @@ li{
   border: red 1px solid;
 }
 
+.cart{
+  display: none;
+  position: fixed;
+  top: 8px;
+  right: 0;
+  background-color: white;
+}
+
+.cart_icon_button{
+  background: #09f;
+  border-radius: 9999px;
+  cursor: pointer;
+  height: 32px;
+  padding: 4px;
+  position: fixed;
+  right: 8px;
+  top: 8px;
+  transition: all .3s ease;
+  width: 32px;
+  z-index: 9999
+}
+
+input:checked + .cart{
+  display: block;
+}
+
 
 @media (max-width: 550px) {
     .min_price_container{
