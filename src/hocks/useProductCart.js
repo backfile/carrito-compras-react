@@ -10,6 +10,11 @@ export function useProductCart(filteredProducts){
         return (array.some((p) => p.id === id));
      }
 
+
+    const removeAllToCart = () => {
+      setProductsCart([])
+    }
+
      const addToCart = (id) => {
           let array = [...productsCart];
           const newProducts = [...filteredProducts];
@@ -27,7 +32,7 @@ export function useProductCart(filteredProducts){
        setProductsCart(array);
      };
 
-     return {productsCart, setProductsCart, addToCart, removeToCart, checkIsOnCart}
+     return {productsCart, setProductsCart, addToCart, removeToCart, checkIsOnCart, removeAllToCart}
 
 
 }

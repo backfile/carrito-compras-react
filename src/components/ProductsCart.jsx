@@ -4,7 +4,7 @@ import { useId } from "react";
 
 
 export function ProductsCart({ filteredProducts }) {
-  const { productsCart, removeToCart } = useProductCart(filteredProducts);
+  const { productsCart, removeToCart, removeAllToCart } = useProductCart(filteredProducts);
   const inputCart = useId()
   const isProductsCartEmpty = productsCart.length === 0
 
@@ -21,8 +21,8 @@ export function ProductsCart({ filteredProducts }) {
             <p>El carrito se encuentra vacio, seleccione un producto para agregarlo.</p>
           </div>
         ) : (
-          <div>
-            <button>Hola</button>
+          <>
+            <button onClick={removeAllToCart}>Eliminar todos</button>
             {productsCart.map((product) => {
             return (
               <li className="product_cart" key={product.id}>
@@ -38,7 +38,7 @@ export function ProductsCart({ filteredProducts }) {
               </li>
             );
           })}
-          </div>
+          </>
         )}
       </ul>
     </>
