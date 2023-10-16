@@ -15,11 +15,13 @@
 
 .product_img{
   border-radius: 10%;
-  max-height: 100px;
+  height: 100px;
+  width: 100px;
   object-fit: cover;
+  align-self: center;
 }
 
-li{
+.product{
   width: 100%;
   overflow: hidden;
   padding: 20px;
@@ -73,19 +75,25 @@ li{
 }
 
 .add_cart_icon{
+  border-radius: 7px;
   border: green 1px solid;
 }
 
 .remove_cart_icon{
-  border: red 1px solid;
+  border-radius: 7px;
+  border: 1px solid;
 }
 
 .cart{
-  display: none;
-  position: fixed;
-  top: 8px;
-  right: 0;
-  background-color: white;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: all 0.2s;
+  position: absolute;
+  top: 60px;
+  right: 2px;
+  background-color: rgb(175, 215, 241);
+  border-radius: 10px;
+  width: 200px;
 }
 
 .cart_icon_button{
@@ -94,18 +102,40 @@ li{
   cursor: pointer;
   height: 32px;
   padding: 4px;
-  position: fixed;
+  position: absolute;
   right: 8px;
-  top: 8px;
-  transition: all .3s ease;
+  top: 35px;
+  transition: all .1s ease;
   width: 32px;
   z-index: 9999
 }
 
 input:checked + .cart{
-  display: block;
+  transform: scaleY(1);
 }
 
+.product_cart{
+  margin: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color:  rgb(235, 243, 248);
+  border-radius: 10px;
+}
+
+.cart_empty{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
 
 @media (max-width: 550px) {
     .min_price_container{
