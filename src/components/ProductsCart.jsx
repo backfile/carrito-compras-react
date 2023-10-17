@@ -22,7 +22,7 @@ export function ProductsCart({ filteredProducts }) {
           </div>
         ) : (
           <>
-            <button onClick={removeAllToCart}>Eliminar todos</button>
+            <button className="remove_all_cart_button" onClick={removeAllToCart}>Eliminar todos</button>
             {productsCart.map((product) => {
             return (
               <li className="product_cart" key={product.id}>
