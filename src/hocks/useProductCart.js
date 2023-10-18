@@ -5,9 +5,9 @@ import { ProductsContext } from "../context/products";
 export function useProductCart(filteredProducts){
      const { productsCart, setProductsCart } = useContext(ProductsContext)
 
-     const checkIsOnCart = (id) => {
+     const checkIsOnCart = (product) => {
         let array = [...productsCart];
-        return (array.some((p) => p.id === id));
+        return (array.some((p) => p.id === product.id));
      }
 
 
@@ -15,21 +15,19 @@ export function useProductCart(filteredProducts){
       setProductsCart([])
     }
 
-     const addToCart = (id) => {
-          let array = [...productsCart];
-          const newProducts = [...filteredProducts];
-          const punter = newProducts.findIndex((pro) => pro.id === id);
-          const productSearched = newProducts[punter];
-          array.push(productSearched);
-          setProductsCart(array);
+     const addToCart = (product) => {
+          setProductsCart((prevState) => {
+           const array = [...prevState]
+           array.push(product)
+           return array
+          });
        } 
        
 
-     const removeToCart = (id) => {
+     const removeToCart = (product) => {
        let array = [...productsCart];
-       const punter = array.findIndex((pro) => pro.id === id);
-       array.splice(punter, 1);
-       setProductsCart(array);
+       const newArray = array.filter((pro)=> pro.id != product.id)
+       setProductsCart(newArray);
      };
 
      return {productsCart, setProductsCart, addToCart, removeToCart, checkIsOnCart, removeAllToCart}

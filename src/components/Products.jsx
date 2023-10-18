@@ -6,19 +6,19 @@ export function Products({filteredProducts}){
 
     const {addToCart, checkIsOnCart, removeToCart} = useProductCart(filteredProducts)
 
-    const handleClick = (id) =>{
-      const isOnCart = checkIsOnCart(id)
+    const handleClick = (product) =>{
+      const isOnCart = checkIsOnCart(product)
       if (!isOnCart){
-        addToCart(id)
+        addToCart(product)
       }else{
-        removeToCart(id)
+        removeToCart(product)
       }
     }
 
     return (
       <ul className="products">
         {filteredProducts.map((product) => {
-          const isOnCart = checkIsOnCart(product.id)
+          const isOnCart = checkIsOnCart(product)
           
           return (
             <li className="product" key={product.id}>
@@ -31,7 +31,7 @@ export function Products({filteredProducts}){
                     ? "remove_cart_icon"
                     : "add_cart_icon"
                 }
-                onClick={() => handleClick(product.id)}
+                onClick={() => handleClick(product)}
               >
                 {isOnCart 
                   ? <RemoveCartIcon />
