@@ -14,6 +14,7 @@
 main{
   background-color: #ebebeb;
   flex: 1;
+  
 }
 
 .products{
@@ -26,7 +27,7 @@ main{
 
 .product_img{
   height: 100px;
-  width: 100px;
+  width: 100%;
   object-fit: cover;
   align-self: center;
 }
@@ -34,7 +35,6 @@ main{
 .product{
   width: 100%;
   overflow: hidden;
-  padding: 20px;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -69,13 +69,21 @@ main{
 }
 
 .product_price{
+  margin-top: 7px;
   text-align: center;
-  font-size: 20px;
+  font-size: 15px;
+  font-weight: bold;
   color: #535353;
 }
 
+.info_container{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
 .product_title{
-  font-size: 18px;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -88,12 +96,14 @@ main{
   border: none;
   box-shadow: 0 1px 2px rgb(146, 146, 146);
   cursor: pointer;
+  margin-top: 15px;
 }
 
 .remove_cart_icon{
   border: none;
   box-shadow: 0 1px 2px rgb(146, 146, 146);
   cursor: pointer;
+  margin-top: 15px;
 }
 
 .cart{
@@ -105,9 +115,10 @@ main{
   position: absolute;
   top: 60px;
   right: 2px;
-  background-color: rgb(175, 215, 241);
+  background-color:#3f3f3f;
   border-radius: 5px;
   width: 200px;
+  box-shadow: 0 1px 5px;
 }
 
 .cart_icon_button{
@@ -128,16 +139,24 @@ input:checked + .cart{
   transform: scaleY(1);
 }
 
+input:checked + .cart_empty{
+  transform: scaleY(1);
+}
+
 .product_cart{
   margin: 20px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 10px;
+  border: none;
+  box-shadow: 0 1px 4px #0a0a0a;
+  border-radius: 5px;
 }
 
 .cart_empty{
+  transform-origin: top;
+  transform: scaleY(0);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -146,8 +165,12 @@ input:checked + .cart{
   text-align: center;
   padding: 20px;
   font-size: 18px;
-  background-color: aliceblue;
+  background-color: rgb(17, 17, 17);
   border-radius: 5px;
+  position: absolute;
+  top: 60px;
+  right: 2px;
+  color: white;
 }
 
 .remove_all_cart_button{
@@ -163,6 +186,26 @@ input:checked + .cart{
   cursor: pointer;
 }
 
+.carts{
+  color: white;
+}
+
+.quantity{
+  color: white;
+  font-size: 13px;
+}
+
+.quantity-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity-button{
+  border: none;
+  padding: 4px;
+  margin: 4px;
+}
 
 @media (max-width: 550px) {
     .min_price_container{
