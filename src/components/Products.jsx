@@ -1,10 +1,10 @@
-import { useProductCart } from "../hocks/useCart";
+import { useCart } from "../hocks/useCart";
 import { AddCartIcon, RemoveCartIcon } from "./Icons";
 
 export function Products({filteredProducts}){
 
 
-    const {addToCart, checkIsOnCart, removeToCart} = useProductCart()
+    const {addToCart, checkIsOnCart, removeToCart} = useCart()
 
     const handleClick = (product) =>{
       const isOnCart = checkIsOnCart(product)

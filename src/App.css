@@ -25,6 +25,10 @@ main{
   justify-items: center;
 }
 
+.products.fullcart{
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
 .product_img{
   height: 100px;
   width: 100%;
@@ -44,6 +48,7 @@ main{
   box-shadow: 0 0px 2px rgb(214, 214, 214);
   background-color: white;
 }
+
 
 .header{
   background-color: #3f3f3f;
@@ -97,6 +102,7 @@ main{
   box-shadow: 0 1px 2px rgb(146, 146, 146);
   cursor: pointer;
   margin-top: 15px;
+  background-color: rgb(231, 225, 225);
 }
 
 .remove_cart_icon{
@@ -104,14 +110,15 @@ main{
   box-shadow: 0 1px 2px rgb(146, 146, 146);
   cursor: pointer;
   margin-top: 15px;
+  background-color: rgb(231, 225, 225);
 }
 
 .cart{
   display: flex;
   flex-direction: column;
-  transform-origin: top;
-  transform: scaleY(0);
-  transition: all 0.2s;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: all 0.1s;
   position: absolute;
   top: 60px;
   right: 2px;
@@ -136,11 +143,11 @@ main{
 }
 
 input:checked + .cart{
-  transform: scaleY(1);
+  transform: scaleX(1);
 }
 
 input:checked + .cart_empty{
-  transform: scaleY(1);
+  transform: scaleX(1);
 }
 
 .product_cart{
@@ -156,7 +163,9 @@ input:checked + .cart_empty{
 
 .cart_empty{
   transform-origin: top;
-  transform: scaleY(0);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: all 0.1s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -165,8 +174,9 @@ input:checked + .cart_empty{
   text-align: center;
   padding: 20px;
   font-size: 18px;
-  background-color: rgb(17, 17, 17);
+  background-color:#3f3f3f;
   border-radius: 5px;
+  box-shadow: 0 1px 5px #0a0a0a;
   position: absolute;
   top: 60px;
   right: 2px;
@@ -193,6 +203,10 @@ input:checked + .cart_empty{
 .quantity{
   color: white;
   font-size: 13px;
+}
+
+.quantity.fullcart{
+  color: #0a0a0a;
 }
 
 .quantity-container{
