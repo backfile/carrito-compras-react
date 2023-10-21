@@ -13,52 +13,49 @@ export function ProductCart(){
     subtractQuantity,
   } = useCart();
 
-  return(
-  <ul className="cart">
-    <button
-      className="remove_all_cart_button"
-      onClick={removeAllToCart}
-    >
-      Eliminar todos
-    </button>
-    {productsCart.slice(0, 2).map((product) => {
-      return (
-        <li className="product_cart" key={product.id}>
-          <img
-            className="product_img carts"
-            src={product.thumbnail}
-            alt=""
-          />
-          <div className="info_container">
-            <p className="product_title carts">{product.title}</p>
-            <button
-              className="remove_cart_icon"
-              onClick={() => removeToCart(product)}
-            >
-              <RemoveCartIcon />
-            </button>
-            <div className="quantity-container">
+  return (
+    <ul className="cart">
+      <button className="remove_all_cart_button" onClick={removeAllToCart}>
+        Eliminar todos
+      </button>
+      {productsCart.slice(0, 2).map((product) => {
+        return (
+          <li className="product_cart" key={product.id}>
+            <img className="product_img carts" src={product.thumbnail} alt="" />
+            <div className="info_container">
+              <p className="product_title carts">{product.title}</p>
               <button
-                className="quantity-button"
-                onClick={() => subtractQuantity(product)}
+                className="remove_cart_icon"
+                onClick={() => removeToCart(product)}
               >
-                -
+                <RemoveCartIcon />
               </button>
-              <p className="quantity">Quantity: {product.quantity}</p>
-              <button
-                className="quantity-button"
-                onClick={() => addToCart(product)}
-              >
-                +
-              </button>
+              <div className="quantity-container">
+                <button
+                  className="quantity-button"
+                  onClick={() => subtractQuantity(product)}
+                >
+                  -
+                </button>
+                <p className="quantity">Quantity: {product.quantity}</p>
+                <button
+                  className="quantity-button"
+                  onClick={() => addToCart(product)}
+                >
+                  +
+                </button>
+              </div>
             </div>
-          </div>
-        </li>
-      );
-    })}
-    {productsCart.length > 2 && <Link to="/About">Ver todos los productos...</Link>}
-  </ul>
-  )
+          </li>
+        );
+      })}
+      {productsCart.length > 2 && (
+        <Link to="/Cart">
+          <p className="cart-link">Ver todos los productos...</p>
+        </Link>
+      )}
+    </ul>
+  );
 }
 
 export function Cart() {

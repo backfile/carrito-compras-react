@@ -50,7 +50,7 @@ main{
 }
 
 
-.header{
+header{
   background-color: #3f3f3f;
   display: flex;
   justify-content: space-evenly;
@@ -219,6 +219,16 @@ input:checked + .cart_empty{
   border: none;
   padding: 4px;
   margin: 4px;
+}
+
+.cart-link{
+  padding: 4px;
+  text-decoration: none;
+  color: rgb(168, 168, 168);
+}
+
+.fullcart-title{
+  color: white;
 }
 
 @media (max-width: 550px) {
