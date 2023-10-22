@@ -3,8 +3,7 @@ import { RemoveCartIcon, CartIcon } from "./Icons";
 import { useId } from "react";
 import { Link } from "react-router-dom";
 
-
-export function ProductCart(){
+export function ProductCart() {
   const {
     productsCart,
     removeToCart,
@@ -50,8 +49,8 @@ export function ProductCart(){
         );
       })}
       {productsCart.length > 2 && (
-        <Link to="/Cart">
-          <p className="cart-link">Ver todos los productos...</p>
+        <Link className="link" to="/Cart">
+          <p>Ver todos los productos...</p>
         </Link>
       )}
     </ul>
@@ -59,9 +58,9 @@ export function ProductCart(){
 }
 
 export function Cart() {
-  const {productsCart} = useCart()
-  const inputCart = useId()
-  const isProductsCartEmpty = productsCart.length === 0
+  const { productsCart } = useCart();
+  const inputCart = useId();
+  const isProductsCartEmpty = productsCart.length === 0;
 
   return (
     <>
@@ -78,7 +77,7 @@ export function Cart() {
           </p>
         </div>
       ) : (
-          <ProductCart/>
+        <ProductCart />
       )}
     </>
   );

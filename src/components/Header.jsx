@@ -2,7 +2,7 @@ import { Filter } from "./Filter";
 
 export function Header(){
     return (
-      <header>
+      <header className="home-header">
         <Filter/>
       </header>
     );

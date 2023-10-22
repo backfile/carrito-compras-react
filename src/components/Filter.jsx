@@ -20,7 +20,7 @@ export function Filter(){
     };
 
     return (
-      <>
+      <div className="filter-container">
         <div className="min_price_container">
           <label htmlFor={minPriceID}>Precio mínimo: </label>
           <input
@@ -42,6 +42,6 @@ export function Filter(){
             <option value="smartphones">Celulares</option>
           </select>
         </div>
-      </>
+      </div>
     );
 }

@@ -5,8 +5,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FullCart } from "./pages/FullCart";
 import { Home } from "./pages/Home";
 
-
-
 function App() {
   return (
     <FiltersProvider>
@@ -20,7 +18,5 @@ function App() {
       </ProductsProvider>
     </FiltersProvider>
   );
-  
 }
-
-export default App
+export default App;
