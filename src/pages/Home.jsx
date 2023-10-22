@@ -12,6 +12,7 @@ export function Home() {
     <>
       <Header />
       <main>
+        <h1 className="home-title">Tienda🛒</h1>
         <Products filteredProducts={filteredProducts} />
         <Cart />
       </main>

@@ -242,6 +242,13 @@ input:checked + .cart_empty{
   justify-content: space-evenly;
 }
 
+.home-title{
+  display: flex;
+  justify-content: center;
+  margin-top: 65px;
+  text-decoration: underline;
+}
+
 @media (max-width: 550px) {
     .home-header{
       flex-direction: column;
@@ -266,5 +273,10 @@ input:checked + .cart_empty{
       flex-direction: column;
       text-align: center;
       padding: 10px;
+    }
+
+    .products{
+      gap: 40px;
+      padding: 40px;
     }
 }
