@@ -1,9 +1,9 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ProductsContext } from "../context/products";
 
 
 export function useCart(){
-     const { productsCart, setProductsCart } = useContext(ProductsContext)
+     const { productsCart, setProductsCart, saveItem } = useContext(ProductsContext)
 
      const checkIsOnCart = (product) => {
         let newArray = [...productsCart];
@@ -17,26 +17,31 @@ export function useCart(){
             let newArray = [...productsCart];
             const index = newArray.findIndex((pro) => pro.id === product.id);
             newArray[index].quantity += 1
-            return setProductsCart(newArray)  
+            setProductsCart(newArray)
+            saveItem(newArray)
+            return
           }
 
-          setProductsCart((prevState) => (
-            [
+          setProductsCart((prevState) => {
+            const newArray = [
               ...prevState,
               {
                 ...product,
                 quantity: 1
               }
             ]
-          )
-       )} 
+            saveItem(newArray)
+            return newArray
+          }
+        )}
 
     const subtractQuantity = (product) =>{
        let newArray = [...productsCart];
        const index = newArray.findIndex((pro) => pro.id === product.id);
        if(newArray[index].quantity > 1){
         newArray[index].quantity -= 1;  
-        return setProductsCart(newArray);
+        setProductsCart(newArray);
+        saveItem(newArray)
        } 
     }
        
@@ -44,10 +49,12 @@ export function useCart(){
        let array = [...productsCart];
        const newArray = array.filter((pro)=> pro.id != product.id)
        setProductsCart(newArray);
+       saveItem(newArray)
      };
 
       const removeAllToCart = () => {
         setProductsCart([]);
+        saveItem([])
      };
 
      return {productsCart, setProductsCart, addToCart, removeToCart, checkIsOnCart, removeAllToCart, subtractQuantity}

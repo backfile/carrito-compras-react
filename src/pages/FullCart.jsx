@@ -17,7 +17,7 @@ export function FullCart() {
       </header>
       <main>
         <ul className="products fullcart">
-          {productsCart.length ? <ProductFullCart /> : <p>Carrito vacio</p>}
+          {productsCart.length ? <ProductFullCart /> : <p>Carrito vacio ➡<Link to="/">Home</Link></p>}
         </ul>
       </main>
     </>

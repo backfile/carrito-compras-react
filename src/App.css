@@ -190,7 +190,7 @@ input:checked + .cart_empty{
   margin-top: 10px;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 2px;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
@@ -252,7 +252,7 @@ input:checked + .cart_empty{
 @media (max-width: 550px) {
     .home-header{
       flex-direction: column;
-      height: 150px;
+      height: 135px;
       align-items: flex-start;
     }
 
